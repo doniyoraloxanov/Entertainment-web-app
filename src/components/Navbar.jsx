@@ -1,9 +1,6 @@
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { ProductIcon } from "../icons/ProductIcon";
-import HomeIcon from "../icons/HomeIcon";
-import SeriesIcon from "../icons/SeriesIcon";
 import { MdLocalMovies } from "react-icons/md";
-import BookMarkIcon from "../icons/BookMarkIcon";
 import logo from "../user.png";
 import { useState } from "react";
 
@@ -15,7 +12,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="flex  space-x-20  bg-gray-800 py-6 px-6 items-center   md:justify-between lg:flex-col lg:space-x-0 lg:space-y-16  lg:items-start   lg:max-w-0 lg:pr-16  lg:justify-start   lg:absolute   lg:w-96   lg:pb-96  lg:rounded-3xl">
+      <nav className="flex  space-x-20  bg-gray-800 py-6 px-6 items-center   md:justify-between lg:flex-col lg:space-x-0 lg:space-y-16  lg:items-start   lg:max-w-0 lg:pr-16  lg:justify-start   lg:absolute   lg:w-96   lg:pb-96  lg:rounded-3xl  sticky left-0">
         <div className=" lg:text-start">
           <ProductIcon />
         </div>
