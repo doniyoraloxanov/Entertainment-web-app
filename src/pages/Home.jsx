@@ -1,23 +1,29 @@
 import React, { useState } from "react";
 import data from "../data.json";
+import { GoPlay } from "react-icons/go";
 
 const Home = () => {
   const filtered = data.filter((movie) => movie.isTrending !== false);
-  const [movies, setMovies] = useState(filtered);
-  console.log(movies);
 
-  const renderedTrending = movies.map((movie, index) => {
+  const renderedTrending = filtered.map((movie, index) => {
     return (
       <section className="">
         <div key={index} className="relative">
           {console.log(movie)}
 
           {/* Trending images */}
-          <div className="bg-red-500 w-96 h-full ">
+          <div className=" w-96 h-full  group">
             <img
               src={movie.thumbnail.trending.large}
-              className="w-full h-full"
+              className="w-full h-full  group-hover:opacity-40"
             />
+
+            <div className="absolute  top-[40%] left-[35%]   bg-gray-500 rounded-full px-4 py-2 hidden group-hover:block ">
+              <div className="flex items-center space-x-4">
+                <GoPlay className=" text-white text-3xl  " />
+                <p className="text-white font-medium text-lg">Play</p>
+              </div>
+            </div>
 
             {/* Content */}
             <article className="absolute left-4 bottom-4">
@@ -37,9 +43,9 @@ const Home = () => {
   });
 
   return (
-    <div>
-      <p className="text-white  font-medium text-xl mb-4 ">Trending</p>
-      <div className=" overflow-x-auto  flex space-x-4 rounded-md md:w-[700px] lg:w-[900px] xl:w-[1400px]">
+    <div className="pt-16">
+      <p className="text-white  font-medium text-2xl mb-4 ">Trending</p>
+      <div className=" overflow-x-auto  flex space-x-4 rounded-md md:w-[800px] lg:w-[900px] xl:w-[1400px]">
         {renderedTrending}
       </div>
     </div>
