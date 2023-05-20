@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import data from "../data.json";
-import { GoPlay } from "react-icons/go";
+import PlayButton from "../components/PlayButton";
 
 const Home = () => {
   const filtered = data.filter((movie) => movie.isTrending !== false);
 
   const renderedTrending = filtered.map((movie, index) => {
     return (
-      <section className="">
-        <div key={index} className="relative">
-          {console.log(movie)}
-
+      <section key={index}>
+        <div className="relative">
           {/* Trending images */}
           <div className=" w-96 h-full  group">
             <img
@@ -18,12 +16,14 @@ const Home = () => {
               className="w-full h-full  group-hover:opacity-40"
             />
 
-            <div className="absolute  top-[40%] left-[35%]   bg-gray-500 rounded-full px-4 py-2 hidden group-hover:block ">
+            <PlayButton />
+
+            {/* <div className="absolute  top-[40%] left-[35%]   bg-gray-500 rounded-full px-4 py-2 hidden group-hover:block ">
               <div className="flex items-center space-x-4">
                 <GoPlay className=" text-white text-3xl  " />
                 <p className="text-white font-medium text-lg">Play</p>
               </div>
-            </div>
+            </div> */}
 
             {/* Content */}
             <article className="absolute left-4 bottom-4">
