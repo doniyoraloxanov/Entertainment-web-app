@@ -38,7 +38,7 @@ const Series = () => {
             </div>
             <p>{series.rating}</p>
           </div>
-          <p className="text-white">{series.title}</p>
+          <p className="text-white mt-1 md:mt-2">{series.title}</p>
         </div>
       </section>
     );
