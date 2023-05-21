@@ -1,12 +1,10 @@
 import React from "react";
 import data from "../data.json";
 import PlayButton from "../components/PlayButton";
-import { GoPlay } from "react-icons/go";
 
 const Movies = () => {
   const filteredMovies = data.filter((movie) => movie.category === "Movie");
 
-  console.log(filteredMovies);
   const renderedMovies = filteredMovies.map((movie, index) => {
     return (
       <section key={index} className="group">
@@ -17,7 +15,7 @@ const Movies = () => {
           />
 
           <PlayButton />
-          <div className="flex space-x-2 pt-4 text-gray-300 text-sm items-center">
+          <div className="flex space-x-2 pt-4 text-gray-300 text-sm items-center ">
             <p>{movie.year}</p>
 
             <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
@@ -38,6 +36,7 @@ const Movies = () => {
             </div>
             <p>{movie.rating}</p>
           </div>
+          <p className="text-white md:text-lg">{movie.title}</p>
         </div>
       </section>
     );

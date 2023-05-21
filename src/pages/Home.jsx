@@ -18,13 +18,6 @@ const Home = () => {
 
             <PlayButton />
 
-            {/* <div className="absolute  top-[40%] left-[35%]   bg-gray-500 rounded-full px-4 py-2 hidden group-hover:block ">
-              <div className="flex items-center space-x-4">
-                <GoPlay className=" text-white text-3xl  " />
-                <p className="text-white font-medium text-lg">Play</p>
-              </div>
-            </div> */}
-
             {/* Content */}
             <article className="absolute left-4 bottom-4">
               <div className="flex space-x-4  text-gray-300">
@@ -44,10 +37,11 @@ const Home = () => {
 
   return (
     <div className="pt-16">
-      <p className="text-white  font-medium text-2xl mb-4 ">Trending</p>
-      <div className=" overflow-x-auto  flex space-x-4 rounded-md md:w-[800px] lg:w-[900px] xl:w-[1400px]">
+      <h2 className="text-white  text-2xl mb-4 ">Trending</h2>
+      <div className=" overflow-x-auto  flex space-x-4 rounded-md md:w-[800px] lg:w-[900px] xl:w-[1400px] mb-4">
         {renderedTrending}
       </div>
+      <h2 className="text-white text-2xl ">Recommended for you</h2>
     </div>
   );
 };
