@@ -1,13 +1,21 @@
 import React from "react";
 import data from "../data.json";
 import PlayButton from "../components/PlayButton";
+import { useContext } from "react";
+import MoviesContext from "../context/movies-context";
 
 const Series = () => {
+  const { title } = useContext(MoviesContext);
+
   const filteredSeries = data.filter(
     (series) => series.category === "TV Series"
   );
 
-  const renderedSeries = filteredSeries.map((series, index) => {
+  const result = filteredSeries.filter((movie) =>
+    movie.title.toLowerCase().includes(title.toLowerCase())
+  );
+
+  const renderedSeries = result.map((series, index) => {
     return (
       <section key={index} className="group">
         <div className="relative">

@@ -1,11 +1,26 @@
 import React from "react";
 import data from "../data.json";
 import PlayButton from "../components/PlayButton";
+import { useContext } from "react";
+import MoviesContext from "../context/movies-context";
+
+// const result = data.filter(
+//   (job) =>
+//     job.position.toLowerCase().includes(title) &&
+//     job.location.toLowerCase().includes(location.toLowerCase()) &&
+//     (isChecked ? job.contract === "Full Time" : true)
+// );
 
 const Movies = () => {
+  const { title } = useContext(MoviesContext);
+
   const filteredMovies = data.filter((movie) => movie.category === "Movie");
 
-  const renderedMovies = filteredMovies.map((movie, index) => {
+  const result = filteredMovies.filter((movie) =>
+    movie.title.toLowerCase().includes(title.toLowerCase())
+  );
+
+  const renderedMovies = result.map((movie, index) => {
     return (
       <section key={index} className="group">
         <div className="relative">

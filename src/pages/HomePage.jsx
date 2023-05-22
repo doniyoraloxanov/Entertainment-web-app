@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import data from "../data.json";
 import PlayButton from "../components/PlayButton";
+import { useContext } from "react";
+import MoviesContext from "../context/movies-context";
 
 const Home = () => {
+  const { title } = useContext(MoviesContext);
+
   const filteredTrending = data.filter((movie) => movie.isTrending === true);
   const filteredRecommends = data.filter((rec) => rec.isTrending === false);
 
-  console.log(filteredRecommends);
+  const result = filteredRecommends.filter((movie) =>
+    movie.title.toLowerCase().includes(title.toLowerCase())
+  );
+
   const renderedTrending = filteredTrending.map((movie, index) => {
     return (
       <section key={index}>
@@ -37,7 +44,7 @@ const Home = () => {
     );
   });
 
-  const renderedRecommends = filteredRecommends.map((rec, index) => {
+  const renderedRecommends = result.map((rec, index) => {
     return (
       <section key={index} className="group">
         <div className="relative">

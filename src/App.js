@@ -27,7 +27,7 @@ const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <div className="bg-gray-900 min-h-screen   max-w-full">
+    <div className="bg-gray-900 min-h-screen  max-w-full">
       <RouterProvider router={router} />
     </div>
   );
