@@ -2,9 +2,10 @@ import React from "react";
 import data from "../data.json";
 import PlayButton from "../components/PlayButton";
 import useMovies from "../hooks/use-movies";
+import { GoBookmark } from "react-icons/go";
 
 const Movies = () => {
-  const { title } = useMovies();
+  const { title, toggleBookmark } = useMovies();
 
   const filteredMovies = data.filter((movie) => movie.category === "Movie");
 
@@ -20,6 +21,12 @@ const Movies = () => {
             src={movie.thumbnail.regular.large}
             className=" w-full h-full rounded-lg group-hover:opacity-40"
           />
+          <div className="absolute top-4 right-4 bg-gray-500  p-2 rounded-full cursor-pointer ">
+            <GoBookmark
+              className=" text-2xl  text-white hover:text-red-500 "
+              onClick={() => toggleBookmark(movie.title)}
+            />
+          </div>
 
           <PlayButton />
           <div className="flex space-x-2 pt-4 text-gray-300 text-sm items-center ">

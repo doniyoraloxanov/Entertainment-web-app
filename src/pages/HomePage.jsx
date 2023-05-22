@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import data from "../data.json";
 import PlayButton from "../components/PlayButton";
 import useMovies from "../hooks/use-movies";
+import BookMarkIcon from "../components/BookMarkIcon";
+import { GoBookmark } from "react-icons/go";
 
 const Home = () => {
-  const { title } = useMovies();
+  const { title, toggleBookmark } = useMovies();
 
   const filteredTrending = data.filter((movie) => movie.isTrending === true);
   const filteredRecommends = data.filter((rec) => rec.isTrending === false);
@@ -21,9 +23,19 @@ const Home = () => {
           <div className=" w-96 h-full  group">
             <img
               src={movie.thumbnail.trending.large}
-              className="w-full h-full  group-hover:opacity-40"
+              className="w-full h-full  group-hover:opacity-40 "
             />
 
+            {/* <BookMarkIcon onClick={() => toggleBookmark(movie.title)} />
+            
+            */}
+
+            <div className="absolute top-4 right-4 bg-gray-500  p-2 rounded-full cursor-pointer ">
+              <GoBookmark
+                className=" text-2xl  text-white hover:text-red-500 "
+                onClick={() => toggleBookmark(movie.title)}
+              />
+            </div>
             <PlayButton />
 
             {/* Content */}
@@ -52,6 +64,12 @@ const Home = () => {
             className=" w-full h-full rounded-lg group-hover:opacity-40"
           />
 
+          <div className="absolute top-4 right-4 bg-gray-500  p-2 rounded-full cursor-pointer ">
+            <GoBookmark
+              className=" text-2xl  text-white hover:text-red-500 "
+              onClick={() => toggleBookmark(rec.title)}
+            />
+          </div>
           <PlayButton />
           <div className="flex space-x-2 pt-4 text-gray-300 text-sm items-center ">
             <p>{rec.year}</p>
