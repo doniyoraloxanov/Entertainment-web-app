@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import data from "../data.json";
 import PlayButton from "../components/PlayButton";
-import { useContext } from "react";
-import MoviesContext from "../context/movies-context";
+import useMovies from "../hooks/use-movies";
 
 const Home = () => {
-  const { title } = useContext(MoviesContext);
+  const { title } = useMovies();
 
   const filteredTrending = data.filter((movie) => movie.isTrending === true);
   const filteredRecommends = data.filter((rec) => rec.isTrending === false);

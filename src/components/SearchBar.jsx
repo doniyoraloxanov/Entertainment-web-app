@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { GoSearch } from "react-icons/go";
-import { useContext } from "react";
-import MoviesContext from "../context/movies-context";
+import useMovies from "../hooks/use-movies";
 
 const SearchBar = () => {
-  const { getValue } = useContext(MoviesContext);
+  const { getValue } = useMovies();
   const [title, setTitle] = useState("");
 
   const handleChange = (event) => {

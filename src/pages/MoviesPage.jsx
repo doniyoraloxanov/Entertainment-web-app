@@ -1,18 +1,10 @@
 import React from "react";
 import data from "../data.json";
 import PlayButton from "../components/PlayButton";
-import { useContext } from "react";
-import MoviesContext from "../context/movies-context";
-
-// const result = data.filter(
-//   (job) =>
-//     job.position.toLowerCase().includes(title) &&
-//     job.location.toLowerCase().includes(location.toLowerCase()) &&
-//     (isChecked ? job.contract === "Full Time" : true)
-// );
+import useMovies from "../hooks/use-movies";
 
 const Movies = () => {
-  const { title } = useContext(MoviesContext);
+  const { title } = useMovies();
 
   const filteredMovies = data.filter((movie) => movie.category === "Movie");
 
