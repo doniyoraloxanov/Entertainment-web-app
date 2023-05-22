@@ -1,9 +1,12 @@
 import Navbar from "./Navbar";
+import SearchBar from "./SearchBar";
 
 const Layout = () => {
   return (
-    <div className="lg:pt-12 lg:pl-4 ">
-      <Navbar />
+    <div>
+      <div className="lg:pt-12 lg:pl-4 px-4">
+        <Navbar />
+      </div>
     </div>
   );
 };

@@ -7,27 +7,27 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Layout from "./components/Layout";
-import Movies from "./pages/Movies";
-import Series from "./pages/Series";
-import Home from "./pages/Home";
-import BookMark from "./pages/BookMark";
-import Register from "./pages/Register";
+import MoviesPage from "./pages/MoviesPage";
+import SeriesPage from "./pages/SeriesPage";
+import HomePage from "./pages/HomePage";
+import BookMarkPage from "./pages/BookMarkPage";
+import RegisterPage from "./pages/RegisterPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route index element={<Home />} />
-      <Route path="movies" element={<Movies />} />
-      <Route path="series" element={<Series />} />
-      <Route path="bookmark" element={<BookMark />} />
-      <Route path="register" element={<Register />} />
+      <Route index element={<HomePage />} />
+      <Route path="movies" element={<MoviesPage />} />
+      <Route path="series" element={<SeriesPage />} />
+      <Route path="bookmark" element={<BookMarkPage />} />
+      <Route path="register" element={<RegisterPage />} />
     </Route>
   )
 );
 
 const App = () => {
   return (
-    <div className="bg-gray-900 min-h-screen   ">
+    <div className="bg-gray-900 min-h-screen   max-w-full">
       <RouterProvider router={router} />
     </div>
   );

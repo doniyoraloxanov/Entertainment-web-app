@@ -75,8 +75,8 @@ const Home = () => {
   });
 
   return (
-    <div className="pt-16">
-      <h2 className="text-white  text-2xl mb-4 ">Trending</h2>
+    <div className="pt-8">
+      <h2 className="text-white  text-2xl mb-6 ">Trending</h2>
       <div className=" overflow-x-auto  flex space-x-4 rounded-md md:w-[800px] lg:w-[900px] xl:w-[1400px] mb-4">
         {renderedTrending}
       </div>

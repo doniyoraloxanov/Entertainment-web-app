@@ -3,6 +3,7 @@ import { ProductIcon } from "../icons/ProductIcon";
 import { MdLocalMovies } from "react-icons/md";
 import logo from "../user.png";
 import { useState } from "react";
+import SearchBar from "./SearchBar";
 
 const Navbar = () => {
   const [home, setHome] = useState(null);
@@ -102,7 +103,9 @@ const Navbar = () => {
           </NavLink>
         </div>
       </nav>
-      <main className="max-w-4xl lg:px-32 px-10 ">
+
+      <main className="lg:px-32 px-10 ">
+        <SearchBar />
         <Outlet />
       </main>
     </div>
