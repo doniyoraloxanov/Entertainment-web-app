@@ -12,12 +12,12 @@ const Navbar = () => {
   const [bookmark, setBookmrk] = useState(null);
 
   return (
-    <div>
-      <nav className="flex  space-x-20  bg-gray-800 py-6 px-6 items-center   md:justify-between lg:flex-col lg:space-x-0 lg:space-y-16  lg:items-start   lg:max-w-0 lg:pr-16  lg:justify-start   lg:absolute   lg:w-96   lg:pb-96  lg:rounded-3xl  sticky left-0 lg:left-6">
-        <div className=" lg:text-start">
+    <div className="pt-6">
+      <nav className="flex items-center justify-between bg-gray-800 px-4 py-2  lg:absolute  lg:flex-col  lg:left-4 ">
+        <div className="">
           <ProductIcon />
         </div>
-        <div className="flex space-x-8 items-center lg:space-x-0 lg:space-y-8 lg:flex-col  ">
+        <div className="flex items-center space-x-6 lg:flex-col lg:items-center lg:space-x-0   lg:space-y-4">
           <NavLink
             to="/"
             end
@@ -97,6 +97,7 @@ const Navbar = () => {
             </svg>
           </NavLink>
         </div>
+
         <div>
           <NavLink to="/register">
             <img src={logo} className="w-25 h-10" />

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import data from "../data.json";
 import PlayButton from "../components/PlayButton";
 import useMovies from "../hooks/use-movies";
-import BookMarkIcon from "../components/BookMarkIcon";
 import { GoBookmark } from "react-icons/go";
+// import BookMarkIcon from "../components/BookMarkIcon";
 
 const Home = () => {
   const { title, toggleBookmark } = useMovies();
@@ -26,16 +26,13 @@ const Home = () => {
               className="w-full h-full  group-hover:opacity-40 "
             />
 
-            {/* <BookMarkIcon onClick={() => toggleBookmark(movie.title)} />
-            
-            */}
-
             <div className="absolute top-4 right-4 bg-gray-500  p-2 rounded-full cursor-pointer ">
               <GoBookmark
                 className=" text-2xl  text-white hover:text-red-500 "
                 onClick={() => toggleBookmark(movie.title)}
               />
             </div>
+            {/* <BookMarkIcon onClick={() => toggleBookmark(movie.title)} /> */}
             <PlayButton />
 
             {/* Content */}
@@ -64,9 +61,9 @@ const Home = () => {
             className=" w-full h-full rounded-lg group-hover:opacity-40"
           />
 
-          <div className="absolute top-4 right-4 bg-gray-500  p-2 rounded-full cursor-pointer ">
+          <div className="absolute top-4 right-4 bg-gray-500 p-1.5 md:p-2 rounded-full cursor-pointer ">
             <GoBookmark
-              className=" text-2xl  text-white hover:text-red-500 "
+              className=" text-xl md:text-2xl  text-white hover:text-red-500 "
               onClick={() => toggleBookmark(rec.title)}
             />
           </div>
@@ -105,7 +102,7 @@ const Home = () => {
         {renderedTrending}
       </div>
       <h2 className="text-white text-2xl mb-4 ">Recommended for you</h2>
-      <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 lg:w-[950px] xl:w-[1400px]  ">
+      <div className="grid grid-cols-2  gap-6 md:grid-cols-3 lg:grid-cols-4 lg:w-[950px] xl:w-[1400px]  ">
         {renderedRecommends}
       </div>
     </div>

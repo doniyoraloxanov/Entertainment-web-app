@@ -1,6 +1,7 @@
 import useMovies from "../hooks/use-movies";
 import PlayButton from "../components/PlayButton";
 import { GoBookmark } from "react-icons/go";
+import { useEffect } from "react";
 
 const BookMarkPage = () => {
   const { bookmarks, toggleBookmark, title } = useMovies();

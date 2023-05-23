@@ -1,11 +1,20 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import data from "../data.json";
 
 const MoviesContext = createContext();
 
 const Provider = ({ children }) => {
   const [title, setTitle] = useState("");
-  const [bookmarks, setBookmarks] = useState([]);
+  const bookmarksArray = JSON.parse(localStorage.getItem("bookmarks"));
+  const [bookmarks, setBookmarks] = useState(bookmarksArray);
+
+  // Use useEffect to save bookmarks to localStorage when they change
+  useEffect(() => {
+    // Stringify the bookmarks array
+    const bookmarkString = JSON.stringify(bookmarks);
+    // Save it to localStorage with the key "bookmarks"
+    localStorage.setItem("bookmarks", bookmarkString);
+  }, [bookmarks]);
 
   const toggleBookmark = (title) => {
     // Check if the movie or series is already bookmarked
@@ -34,6 +43,7 @@ const Provider = ({ children }) => {
     title,
     toggleBookmark,
     bookmarks,
+    setBookmarks,
   };
 
   return (
