@@ -57,8 +57,11 @@ const BookMarkPage = () => {
     );
   });
   return (
-    <div className="text-white grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 lg:w-[950px] xl:w-[1400px]">
-      {renderedBookmarks}
+    <div className=" flex flex-col space-y-4">
+      <p className="text-white text-2xl text-semibold">Your Bookmarks</p>
+      <div className="text-white grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 lg:w-[950px] xl:w-[1400px]">
+        {renderedBookmarks}
+      </div>
     </div>
   );
 };

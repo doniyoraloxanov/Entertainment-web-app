@@ -3,7 +3,6 @@ import { ProductIcon } from "../icons/ProductIcon";
 import { MdLocalMovies } from "react-icons/md";
 import logo from "../user.png";
 import { useState } from "react";
-import SearchBar from "./SearchBar";
 
 const Navbar = () => {
   const [home, setHome] = useState(null);
@@ -13,11 +12,11 @@ const Navbar = () => {
 
   return (
     <div className="pt-6">
-      <nav className="flex items-center justify-between bg-gray-800 px-4 py-2  lg:absolute  lg:flex-col  lg:left-4 ">
+      <nav className="flex items-center justify-between bg-gray-800 px-4 py-2  lg:absolute  lg:flex-col  lg:left-4  lg:space-y-12 ">
         <div className="">
           <ProductIcon />
         </div>
-        <div className="flex items-center space-x-6 lg:flex-col lg:items-center lg:space-x-0   lg:space-y-4">
+        <div className="flex items-center space-x-6 lg:flex-col lg:items-center lg:space-x-0   lg:space-y-6">
           <NavLink
             to="/"
             end
@@ -98,7 +97,7 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        <div>
+        <div className=" lg:pt-96">
           <NavLink to="/register">
             <img src={logo} className="w-25 h-10" />
           </NavLink>
@@ -106,7 +105,6 @@ const Navbar = () => {
       </nav>
 
       <main className="lg:px-32 px-10 ">
-        <SearchBar />
         <Outlet />
       </main>
     </div>

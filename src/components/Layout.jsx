@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 const Layout = () => {
   return (
     <div>
-      <div className="px-4">
+      <div className="px-4 ">
         <Navbar />
       </div>
     </div>

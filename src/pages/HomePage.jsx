@@ -3,6 +3,7 @@ import data from "../data.json";
 import PlayButton from "../components/PlayButton";
 import useMovies from "../hooks/use-movies";
 import { GoBookmark } from "react-icons/go";
+import SearchBar from "../components/SearchBar";
 // import BookMarkIcon from "../components/BookMarkIcon";
 
 const Home = () => {
@@ -97,6 +98,9 @@ const Home = () => {
 
   return (
     <div className="pt-8">
+      <div className="mb-4">
+        <SearchBar />
+      </div>
       <h2 className="text-white  text-2xl mb-6 ">Trending</h2>
       <div className=" overflow-x-auto  flex space-x-4 rounded-md md:w-[800px] lg:w-[900px] xl:w-[1400px] mb-4">
         {renderedTrending}

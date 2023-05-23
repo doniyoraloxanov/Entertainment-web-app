@@ -3,6 +3,7 @@ import data from "../data.json";
 import PlayButton from "../components/PlayButton";
 import useMovies from "../hooks/use-movies";
 import { GoBookmark } from "react-icons/go";
+import SearchBar from "../components/SearchBar";
 
 const Movies = () => {
   const { title, toggleBookmark } = useMovies();
@@ -57,6 +58,9 @@ const Movies = () => {
   });
   return (
     <div className="text-white pt-8  pb-12 ">
+      <div className="mb-4">
+        <SearchBar />
+      </div>
       <p className="text-3xl font-medium mb-8">Movies</p>
       <div className=" grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4  lg:w-[950px] xl:w-[1400px]  ">
         {renderedMovies}
