@@ -7,7 +7,7 @@ const BookMarkPage = () => {
   const { bookmarks, toggleBookmark, title } = useMovies();
 
   const filteredBookmarks = bookmarks.filter(
-    (movie) => movie.category === "Movie"
+    (movie) => movie.category === "Movie" || movie.category === "TV Series"
   );
 
   const result = filteredBookmarks.filter((movie) =>

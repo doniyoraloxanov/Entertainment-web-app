@@ -1,20 +1,32 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import useMovies from "../hooks/use-movies";
+import { useLocaleStorage } from "../hooks/useLocalStorage";
 
-const Register = () => {
+const SignupPage = () => {
+  const { createUser } = useMovies();
+  const navigate = useNavigate();
+  const [isAuth, setIsAuthenticated] = useLocaleStorage("isAuth", false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (e) => {
+    try {
+      await createUser(e.email, e.password);
+      // setIsAuthenticated(true);
+      navigate("/");
+    } catch (e) {
+      console.log(e.message);
+    }
   };
-
   return (
     <div className="bg-gray-800 py-10 px-8  my-24 rounded-lg  max-w-md mx-auto">
-      <h2 className="text-white text-2xl mb-8">Login</h2>
+      <h2 className="text-white text-2xl mb-8">Sign Up</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col space-y-3  mb-4"
@@ -22,6 +34,7 @@ const Register = () => {
         <input
           type="text"
           name="email"
+          placeholder="Email address"
           className="pl-4 py-3 outline-none bg-black text-white"
           {...register("email", {
             required: true,
@@ -37,6 +50,7 @@ const Register = () => {
         <input
           type="password"
           name="password"
+          placeholder="Password"
           className="pl-4 py-3 outline-none bg-black text-white"
           {...register("password", {
             required: true,
@@ -71,15 +85,17 @@ const Register = () => {
           type="submit"
           className="block  text-white font-semibold px-4 py-3 bg-red-500 hover:bg-white hover:text-gray-500 cursor-pointer"
         >
-          Login to your account
+          Create your account
         </button>
       </form>
       <div className="flex space-x-4 px-11  justify-center ">
         <p className="text-white">Don't have a account?</p>
-        <p className="text-red-500 font-semibold">Sign Up</p>
+        <Link to="/login">
+          <p className="text-red-500 font-semibold">Login</p>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default SignupPage;

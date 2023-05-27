@@ -1,14 +1,39 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { ProductIcon } from "../icons/ProductIcon";
 import { MdLocalMovies } from "react-icons/md";
 import logo from "../user.png";
 import { useState } from "react";
+import useMovies from "../hooks/use-movies";
+import { useNavigate } from "react-router-dom";
+import { useLocaleStorage } from "../hooks/useLocalStorage";
 
 const Navbar = () => {
   const [home, setHome] = useState(null);
   const [series, setSeries] = useState(null);
   const [movies, setMovies] = useState(null);
   const [bookmark, setBookmrk] = useState(null);
+  const [showModel, setShowModel] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useLocaleStorage(
+    "isAuth",
+    false
+  );
+  const { user, logout } = useMovies();
+  const navigate = useNavigate();
+  const handleModalClick = () => {
+    setShowModel(!showModel);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setIsAuthenticated(false);
+      navigate("/");
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
+  // let content = user && !showModel;
 
   return (
     <div className="pt-6">
@@ -97,10 +122,42 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        <div className=" lg:pt-96">
-          <NavLink to="/register">
+        <div className=" lg:pt-96 relative" onClick={handleModalClick}>
+          <NavLink>
             <img src={logo} className="w-25 h-10" />
           </NavLink>
+
+          {showModel && (
+            <div className="bg-gray-800 w-48 flex flex-col space-y-4 text-center py-2 px-5 rounded-lg absolute right-4 top-16 z-50 lg:left-20 lg:top-80">
+              {isAuthenticated ? (
+                <button
+                  onClick={handleLogout}
+                  className="bg-red-500 text-white font-semibold py-1 cursor-pointer hover:bg-white hover:text-gray-600 rounded-lg"
+                >
+                  Logout
+                </button>
+              ) : (
+                <div className="flex flex-col space-y-4">
+                  <Link
+                    to="/login"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setIsAuthenticated(true);
+                    }}
+                  >
+                    <p className="bg-red-500 text-white font-semibold py-1 cursor-pointer hover:bg-white hover:text-gray-600 rounded-lg ">
+                      Login
+                    </p>
+                  </Link>
+                  <Link to="/signup">
+                    <p className="bg-red-500 text-white font-semibold py-1 cursor-pointer hover:bg-white hover:text-gray-600 rounded-lg">
+                      Sign up
+                    </p>
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </nav>
 
@@ -113,4 +170,6 @@ const Navbar = () => {
 
 export default Navbar;
 
-// g:flex-col, lg:space-x-0, and lg:space-y-4.
+// if user is authed , show logout button , if not show login/signup page
+
+// if user is not sign in , show signup/login modal. if user is signed in, show logout modal when user clicks profile pucture

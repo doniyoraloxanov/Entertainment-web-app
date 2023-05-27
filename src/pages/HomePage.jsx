@@ -97,16 +97,16 @@ const Home = () => {
   });
 
   return (
-    <div className="pt-8">
+    <div className="pt-8 lg:px-16">
       <div className="mb-4">
         <SearchBar />
       </div>
       <h2 className="text-white  text-2xl mb-6 ">Trending</h2>
-      <div className=" overflow-x-auto  flex space-x-4 rounded-md md:w-[800px] lg:w-[900px] xl:w-[1400px] mb-4">
+      <div className=" overflow-x-auto  flex space-x-4 rounded-md md:w-[800px] lg:w-[900px] xl:w-[1400px] mb-4 ">
         {renderedTrending}
       </div>
       <h2 className="text-white text-2xl mb-4 ">Recommended for you</h2>
-      <div className="grid grid-cols-2  gap-6 md:grid-cols-3 lg:grid-cols-4 lg:w-[950px] xl:w-[1400px]  ">
+      <div className="grid grid-cols-2  gap-6 md:grid-cols-3 lg:grid-cols-4 lg:w-[950px] xl:w-[1400px]   ">
         {renderedRecommends}
       </div>
     </div>

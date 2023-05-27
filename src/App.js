@@ -11,7 +11,8 @@ import MoviesPage from "./pages/MoviesPage";
 import SeriesPage from "./pages/SeriesPage";
 import HomePage from "./pages/HomePage";
 import BookMarkPage from "./pages/BookMarkPage";
-import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +21,8 @@ const router = createBrowserRouter(
       <Route path="movies" element={<MoviesPage />} />
       <Route path="series" element={<SeriesPage />} />
       <Route path="bookmark" element={<BookMarkPage />} />
-      <Route path="register" element={<RegisterPage />} />
+      <Route path="login" element={<LoginPage />} />
+      <Route path="signup" element={<SignupPage />} />
     </Route>
   )
 );

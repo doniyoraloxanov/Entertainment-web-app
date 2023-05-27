@@ -1,11 +1,22 @@
 import { createContext, useEffect, useState } from "react";
 import data from "../data.json";
 
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from "firebase/auth";
+
+import { auth } from "../firebase";
+
 const MoviesContext = createContext();
 
 const Provider = ({ children }) => {
   const [title, setTitle] = useState("");
+  const [user, setUser] = useState({});
   const bookmarksArray = JSON.parse(localStorage.getItem("bookmarks"));
+
   const [bookmarks, setBookmarks] = useState(bookmarksArray);
 
   // Use useEffect to save bookmarks to localStorage when they change
@@ -38,12 +49,40 @@ const Provider = ({ children }) => {
     setTitle(newTitle);
   };
 
+  // Auth Firebase
+
+  const createUser = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const signIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const logout = () => {
+    return signOut();
+  };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   const valueToShare = {
     getValue,
     title,
     toggleBookmark,
     bookmarks,
     setBookmarks,
+    createUser,
+    signIn,
+    logout,
+    user,
   };
 
   return (
