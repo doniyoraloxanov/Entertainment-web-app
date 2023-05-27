@@ -1,7 +1,6 @@
 import useMovies from "../hooks/use-movies";
 import PlayButton from "../components/PlayButton";
 import { GoBookmark } from "react-icons/go";
-import { useEffect } from "react";
 
 const BookMarkPage = () => {
   const { bookmarks, toggleBookmark, title } = useMovies();
@@ -57,8 +56,8 @@ const BookMarkPage = () => {
     );
   });
   return (
-    <div className=" flex flex-col space-y-4">
-      <p className="text-white text-2xl text-semibold">Your Bookmarks</p>
+    <div className=" flex flex-col space-y-4 pt-6 lg:px-16">
+      <p className="text-white text-2xl text-semibold mb-4">Your Bookmarks</p>
       <div className="text-white grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 lg:w-[950px] xl:w-[1400px]">
         {renderedBookmarks}
       </div>

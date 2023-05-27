@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage";
 import BookMarkPage from "./pages/BookMarkPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +21,14 @@ const router = createBrowserRouter(
       <Route index element={<HomePage />} />
       <Route path="movies" element={<MoviesPage />} />
       <Route path="series" element={<SeriesPage />} />
-      <Route path="bookmark" element={<BookMarkPage />} />
+      <Route
+        path="bookmark"
+        element={
+          <ProtectedRoute>
+            <BookMarkPage />
+          </ProtectedRoute>
+        }
+      />
       <Route path="login" element={<LoginPage />} />
       <Route path="signup" element={<SignupPage />} />
     </Route>

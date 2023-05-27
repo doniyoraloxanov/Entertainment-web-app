@@ -18,7 +18,7 @@ const SignupPage = () => {
   const onSubmit = async (e) => {
     try {
       await createUser(e.email, e.password);
-      // setIsAuthenticated(true);
+      setIsAuthenticated(true);
       navigate("/");
     } catch (e) {
       console.log(e.message);

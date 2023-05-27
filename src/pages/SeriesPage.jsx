@@ -59,7 +59,7 @@ const Series = () => {
 
   return (
     <div>
-      <div className="mb-4 pt-4">
+      <div className="mb-4 pt-4 lg:px-16">
         <SearchBar />
       </div>
       <h2 className="text-white text-2xl mb-8 mt-4">TV Series</h2>

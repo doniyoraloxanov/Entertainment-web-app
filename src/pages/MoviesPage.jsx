@@ -57,7 +57,7 @@ const Movies = () => {
     );
   });
   return (
-    <div className="text-white pt-8  pb-12 ">
+    <div className="text-white pt-8  pb-12 lg:px-16 ">
       <div className="mb-4">
         <SearchBar />
       </div>

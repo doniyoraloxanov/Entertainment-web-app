@@ -60,7 +60,7 @@ const Provider = ({ children }) => {
   };
 
   const logout = () => {
-    return signOut();
+    return signOut(auth);
   };
 
   useEffect(() => {
