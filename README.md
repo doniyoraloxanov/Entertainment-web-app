@@ -46,7 +46,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: https://entertainment-web-app-bice.vercel.app/
+- Live Site URL: https://entertainment-web-app-kappa.vercel.app/
 
 ## My process
 
