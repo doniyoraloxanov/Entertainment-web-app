@@ -35,11 +35,9 @@ const Navbar = () => {
     }
   };
 
-  // let content = user && !showModel;
-
   return (
     <div className="pt-6">
-      <nav className="flex items-center justify-between bg-gray-800 px-4 py-2  lg:absolute  lg:flex-col  lg:left-4  lg:space-y-12 ">
+      <nav className="flex items-center justify-between bg-gray-800 px-4 py-2  lg:absolute  lg:flex-col  lg:left-4  lg:space-y-12  ">
         <div className="">
           <ProductIcon />
         </div>
@@ -127,7 +125,7 @@ const Navbar = () => {
           </ProtectedRoute>
         </div>
 
-        <div className=" lg:pt-96 relative" onClick={handleModalClick}>
+        <div className=" lg:pt-[500px] relative" onClick={handleModalClick}>
           <NavLink>
             <img src={logo} className="w-25 h-10" />
           </NavLink>
@@ -174,7 +172,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// if user is authed , show logout button , if not show login/signup page
-
-// if user is not sign in , show signup/login modal. if user is signed in, show logout modal when user clicks profile pucture
