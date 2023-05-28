@@ -3,15 +3,11 @@ import PlayButton from "../components/PlayButton";
 import { GoBookmark } from "react-icons/go";
 
 const BookMarkPage = () => {
-  const { bookmarks, toggleBookmark, title } = useMovies();
+  const { bookmarks, toggleBookmark } = useMovies();
 
-  const filteredBookmarks = bookmarks.filter(
+  const filteredBookmarks = bookmarks?.filter(
     (movie) => movie.category === "Movie" || movie.category === "TV Series"
   );
-
-  // const result = filteredBookmarks.filter((movie) =>
-  //   movie.title.toLowerCase().includes(title.toLowerCase())
-  // );
 
   const renderedBookmarks = filteredBookmarks?.map((bookmark, index) => {
     return (
