@@ -9,11 +9,11 @@ const BookMarkPage = () => {
     (movie) => movie.category === "Movie" || movie.category === "TV Series"
   );
 
-  const result = filteredBookmarks.filter((movie) =>
-    movie.title.toLowerCase().includes(title.toLowerCase())
-  );
+  // const result = filteredBookmarks.filter((movie) =>
+  //   movie.title.toLowerCase().includes(title.toLowerCase())
+  // );
 
-  const renderedBookmarks = result.map((bookmark, index) => {
+  const renderedBookmarks = filteredBookmarks?.map((bookmark, index) => {
     return (
       <section key={index} className="group">
         <div className="relative">
